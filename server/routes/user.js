@@ -34,12 +34,12 @@ router.post('/signup', async (req, res) => {
     lastName: req.body.lastName,
   })
 
+  const userId = user._id
+
   await Account.create({
     userId,
     balance: 1 + Math.random() * 10000,
   })
-
-  const userId = user._id
 
   const token = jwt.sign(
     {
@@ -111,11 +111,13 @@ router.get('/bulk', async (req, res) => {
       {
         firstName: {
           $regex: filter,
+          $options: 'i',
         },
       },
       {
         lastName: {
           $regex: filter,
+          $options: 'i',
         },
       },
     ],

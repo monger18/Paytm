@@ -1,8 +1,11 @@
 const mongoose = require('mongoose')
 
-mongoose.connect(
-  'mongodb+srv://rahulraj18sep200051:C7TNUmoqzObPKlYd@cluster0.ihqafnl.mongodb.net/'
-)
+mongoose
+  .connect(
+    'mongodb+srv://rahulraj18sep200051:C7TNUmoqzObPKlYd@cluster0.ihqafnl.mongodb.net/'
+  )
+  .then(() => console.log('Database connected'))
+  .catch((err) => console.log('Error:'))
 const UserSchema = new mongoose.Schema({
   username: {
     type: String,

@@ -1,7 +1,5 @@
 import React from 'react'
 
-const Send = () => {
+export const Send = () => {
   return <div>Send</div>
 }
-
-export default Send
